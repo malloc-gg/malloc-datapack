@@ -1,0 +1,9 @@
+{
+	"values": [
+		"malloc:ticks/load",
+		"malloc:ticks/tick",
+		"malloc:ticks/on_countdown",
+		"malloc:fx/load",
+		"malloc:fx/tick"
+	]
+}
