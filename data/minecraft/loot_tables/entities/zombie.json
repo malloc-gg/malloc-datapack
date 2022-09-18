@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:gunpowder",
+          "name": "minecraft:rotten_flesh",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -35,16 +35,8 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 50,
-                "max": 150
-              }
-            },
-            {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 50,
-                "max": 150
+                "min": 25,
+                "max": 50
               }
             }
           ],
@@ -61,18 +53,42 @@
       "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:tag",
-          "name": "minecraft:creeper_drop_music_discs",
-          "expand": true
+          "type": "minecraft:item",
+          "name": "minecraft:iron_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:carrot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potato",
+          "functions": [
+            {
+              "function": "minecraft:furnace_smelt",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "flags": {
+                      "is_on_fire": true
+                    }
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "killer",
-          "predicate": {
-            "type": "#minecraft:skeletons"
-          }
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.025,
+          "looting_multiplier": 0.01
         }
       ]
     }
